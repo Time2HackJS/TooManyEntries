@@ -1,0 +1,26 @@
+<br/><br/><p id="notice"><%= notice %></p>
+<div class = 'modif'>
+  <h1>Users</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @users.each do |user| %>
+      <tr class="row entryshow toppls">
+        <td class="usershow col-4"><%= user.name %></td>
+        <td class="useradmin col-4"><%= t('.admin') if user.admin %></td>
+        <td class="apptext"><%= link_to t('.show'), user, class: "apptext" %></td>
+        <% if current_user&.admin? %>
+          <td class = "col-4 apptext otstup"><%= link_to t('.edit'), edit_user_path(user), class: "apptext" %></td>
+          <% if !user.admin %><td class="col-4 otstup"><%= link_to t('.destroy'), user, method: :delete, data: { confirm: t('.confirm') }, class: "deltext" %></td><% end %>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

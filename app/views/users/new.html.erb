@@ -1,0 +1,10 @@
+<div class="text-center row justify-content-center">
+  <% session[:user_id] = nil %>
+  <h1 class="col-12 mod">New User</h1>
+
+  <%= render 'form', user: @user %>
+
+  <div class="col-12"></div>
+  <%= link_to(t('.back'), { controller: 'sessions', action: 'index' }, class: 'btn btn-outline-primary') %>
+
+</div>

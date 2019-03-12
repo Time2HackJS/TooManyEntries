@@ -1,0 +1,43 @@
+<br/><br/><br/>
+<br/>
+<div class="container">
+  <div class="row entryshow">
+    <div class="col-3 text-center">
+      <img src = <%= @title[:poster] %> width="250" height="370" alt = <%= @title[:id] %> />
+    </div>
+    <div class="col-9 mainheader">
+      <h1 class = "entryheader"><%= @title[:name] %></h1>
+      <br/>
+      <div><span class="topics"><%= t('.genre') %></span> <%= @title[:genre] %></div>
+      <br/>
+      <div><span class="topics"><%= t('.date') %></span><%= @title[:date] %></div>
+      <br/>
+      <div><span class="topics"><%= t('.tags') %></span><%= @title[:tags] %></div>
+      <br/>
+      <div><span class="topics"><%= t('.discription') %></span> <%= @title[:synopsis] %></div>
+    </div>
+    <div class="row">
+      <div>
+        <% if current_user %>
+          <% Lastentry.create entryid: @title[:id].to_s %>
+          <% if Profile.find_by_username(current_user[:name]) %>
+            <% if Profile.find_by_username(current_user[:name])[:entries].split(' ').index(Lastentry.last[:entryid]) %>
+              <%= link_to(t('.delete'), { controller: 'titles', action: 'entrydelete' }, class: 'btn btn-danger somebutton') %>
+              <% else %>
+              <%= link_to(t('.add'), { controller: 'titles', action: 'entryadd' }, class: 'btn btn-primary somebutton') %>
+            <% end %>
+          <% else %>
+            <%= link_to(t('.add'), { controller: 'titles', action: 'entryadd' }, class: 'btn btn-primary somebutton') %>
+          <% end %>
+        <% end %>
+        <%= link_to(t('.back'), :back, class: 'btn btn-primary somebuttont') %>
+      </div>
+    </div>
+  </div>
+  <br/><br/><br/>
+  <div class="row">
+    <% if !current_user %>
+      <h1 class = "col-12 text-center"><%= link_to(t('.login'), { controller: 'sessions', action: 'index' }, class: 'login') %><%= t('.toadd') %></h1>
+    <% end %>
+  </div>
+</div>

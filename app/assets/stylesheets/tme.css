@@ -1,0 +1,144 @@
+.site-theme-dark {
+    background-color: #282C38;
+}
+
+.site-dark-text {
+    color: antiquewhite !important;
+}
+
+.apptext {
+    color: antiquewhite !important;
+    font-size: 15pt !important;
+}
+
+.apptext:hover {
+    color: #009DFC !important;
+    background: #353A40 !important;
+}
+
+.deltext {
+    color: antiquewhite !important;
+    font-size: 15pt !important;
+}
+
+.deltext:hover {
+    color: red !important;
+    background: #353A40 !important;
+}
+
+.usershow {
+    font-size: 12pt;
+}
+
+.useradmin {
+    font-size: 10pt;
+    color: red;
+}
+
+.pupa {
+    width: 1287px !important;
+    margin-left: -33px;
+}
+
+.mainheader {
+    margin-top: 10px;
+    border-bottom: 2px white !important;
+}
+
+.entrypic {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.entrypicex {
+    font-size: 20px;
+    color: antiquewhite !important;
+    display: none;
+}
+
+.entrypic:hover .entrypicex {
+    color: #009DFC !important;
+    display: block;
+    position: absolute;
+    top: 352px;
+    background: #353A40 !important;
+    background-position: 100% !important;
+}
+
+.entrypicex:hover {
+    color: #009DFC !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.toppls {
+    margin-top: 410px;
+}
+
+.topics {
+    font-weight: bold !important;
+}
+
+.entryheader {
+    border-bottom: 2px solid antiquewhite;
+}
+
+.someshit {
+    border-bottom: 2px solid antiquewhite;
+    position: relative;
+    left: 270%;
+    margin-top: 100px;
+}
+
+.login {
+    color: antiquewhite !important;
+    font-size: 30pt !important;
+}
+
+.login:hover {
+    color: #009DFC !important;
+    background: #282C38 !important;
+}
+
+.entryshow {
+    background: #353A40;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.somebutton {
+    position: relative;
+    bottom: 10px;
+    left: 310px;
+    color: antiquewhite !important;
+}
+
+.somebuttont {
+    position: relative;
+    bottom: 10px;
+    left: 970px;
+    color: antiquewhite !important;
+}
+
+.usershow {
+    color: antiquewhite;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.userlist {
+    margin-top: 20px;
+}
+
+.otstup {
+    margin-top: 15px;
+}
+
+.showset {
+    color: antiquewhite !important;
+}

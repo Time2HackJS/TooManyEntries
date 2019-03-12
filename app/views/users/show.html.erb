@@ -1,0 +1,35 @@
+<br/><div class="modif">
+  <p id="notice"><%= notice %></p>
+  <br/>
+  <p class="usershow usershow">
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
+  <br/><br/><br/>
+
+
+  <div class="container">
+      <% if Profile.find_by_username(@user.name) and Entry.find_by_id(Profile.find_by_username(@user.name)[:entries])%>
+      <div><h1 class="text-center">Watched list:</h1></div>
+      <% Profile.find_by_username(@user.name)[:entries].split(' ').each do |entry| %>
+        <div class="row userlist entryshow">
+          <div class="col-2">
+            <img src = <%= Entry.find_by_id(entry)[:poster] %> width="125" height="185" class/>
+          </div>
+          <div class="col-10">
+
+            <h3 class="entryheader"><%= link_to Entry.find_by_id(entry)[:name], titles_path + '/' + entry, class: "apptext" %></h3><br/>
+            <div><span class="topics"><%= t('.genre') %></span><%= Entry.find_by_id(entry)[:genre] %></div><br/>
+            <div><span class="topics"><%= t('.date') %></span><%= Entry.find_by_id(entry)[:date] %></div><br/>
+            <div><span class="topics"><%= t('.tags') %></span><%= Entry.find_by_id(entry)[:tags] %></div>
+          </div>
+        </div>
+      <% end %>
+      <% else %>
+        <h1 class="text-center"><%= t('.nothing') %></h1>
+      <% end %>
+  </div>
+  <br/><br/>
+  <% if current_user&.admin? %><%= link_to t('.edit'), edit_user_path(@user), class: "usershow" %> | <% end %>
+  <%= link_to t('.back'), users_path, class: "apptext" %>
+</div>

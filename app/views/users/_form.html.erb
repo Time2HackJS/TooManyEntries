@@ -1,0 +1,37 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %><%= t('.proh') %></h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label t('.name') %>
+    <%= form.text_field :name, class: 'form-control' %>
+    <br/>
+  </div>
+
+  <div class="field">
+    <%= form.label t('.password') %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <% if current_user&.admin? %>
+    <div class="field">
+      <%= form.label :admin %>
+      <%= form.check_box :admin %>
+    </div>
+  <% end %>
+
+  <br />
+
+  <div class="actions">
+    <%= form.submit(t('.submit'), class: 'btn btn-primary') %>
+  </div>
+
+<% end %>

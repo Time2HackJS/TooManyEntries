@@ -1,0 +1,2 @@
+class Lastentry < ApplicationRecord
+end

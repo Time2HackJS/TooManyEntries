@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Too Many Entries</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body class="site-theme-dark site-dark-text">
+<header>
+  <nav class='navbar fixed-top navbar-expand-lg navbar-dark bg-dark'>
+    <div class="navbar-brand"><%= image_tag("tmesmall.png", size: '80x40') %></div>
+    <div class="site-dark-text"><%= link_to(t('.main'), { controller: 'titles', action: 'main' }, class: 'nav-link apptext') %></div>
+
+    <% if current_user&.admin %>
+      <div class="site-dark-text"><%= link_to(t('.add'), '/create', class: 'nav-link apptext') %></div>
+    <% end %>
+
+    <% if current_user %>
+      <div class="site-dark-text"><%= link_to(t('.users'), { controller: 'users', action: 'index' }, class: 'nav-link apptext') %></div>
+    <% end %>
+    <div class="nav-item">
+      <%= link_to t('Ru'), current_path(locale: 'ru'), class: 'nav-link apptext' %>
+    </div>
+    <div class="nav-item">
+      <%= link_to t('En'), current_path(locale: 'en'), class: 'nav-link apptext' %>
+    </div>
+    <% if current_user %>
+      <div class="container-fluid">
+      </div>
+      <span class="notices side-dark-text"><%= t('.hello') %><%= current_user.name %>!</span>
+      <div class="navbar-nav site-dark-text"><%= link_to(t('.logout'), { controller: 'sessions', action: 'logout' }, class: 'btn btn-outline-light') %></div>
+    <% else %>
+      <div class="container-fluid">
+      </div>
+      <span class="navbar-text notices"><%= t('.urenot') %></span>
+      <div class="navbar-nav"><%= link_to(t('.login'), { controller: 'sessions', action: 'index' }, class: 'btn btn-outline-light') %></div>
+    <%end %>
+  </nav>
+</header>
+
+<%= yield %>
+</body>
+</html>

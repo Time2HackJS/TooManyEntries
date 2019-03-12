@@ -1,0 +1,45 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide pupa text-center" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag 'slide1.jpg', class: 'd-block w-120', alt: 'First slide', width: '1300'; %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'slide2.jpg', class: 'd-block w-120', alt: 'Second slide', width: '1300' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'slide3.jpg', class: 'd-block w-120', alt: 'Third slide', width: '1300' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'slide4.jpg', class: 'd-block w-120', alt: 'Fourth slide', width: '1300' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'slide5.jpg', class: 'd-block w-120', alt: 'Fifth slide', width: '1300' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'slide6.jpg', class: 'd-block w-120', alt: 'Sixth slide', width: '1300' %>
+    </div>
+  </div>
+</div>
+<div class="container">
+
+  <div class="col-12 head text-center otstup"><%= image_tag("tme.png") %></div>
+<br/><br/>
+  <div class="mainheader otstup"><h1 class="text-center row entryheader"><%= t('.header') %></h1></div>
+  <br/><br/>
+  <div class="row">
+    <% @database.each do |entry| %>
+    <div class="col-3">
+      <div class="entrypic">
+        <img src = <%= entry[:poster] %> width="250" height="370" />
+        <div class="entrypicex text-center"><%= link_to t('.show'), titles_path + '/' + entry[:id].to_s, class: "apptext" %></div>
+        <div><% @dbcount += 1 %></div>
+      </div>
+    </div>
+    <% if @dbcount%4==0 %>
+      </div>
+      <div class="row toppls">
+    <% end %>
+    <% end %>
+  </div>
+</div>
+<br/><br/>

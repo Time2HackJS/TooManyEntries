@@ -1,0 +1,26 @@
+<br/><br/><br/>
+<div class="row justify-content-center text-center">
+  <h1 class="col-12 head"><%= t('.header') %></h1>
+  <%= form_tag url_for(controller: 'titles', action: 'create'), method: 'get' do %>
+<br/>
+    <%= label_tag t('.name') %>
+    <%= text_field_tag :entryname %>
+    <br><br/>
+    <%= label_tag t('.genre') %>
+    <%= text_field_tag :genretype %>
+    <br/><br/>
+    <%= label_tag t('.release') %>
+    <%= text_field_tag :entrydate %>
+    <br/><br/>
+    <%= label_tag t('.synopsis') %>
+    <%= text_area_tag :entrysynopsis, nil, size: '80' %>
+    <br/><br/>
+    <%= label_tag t('.tags') %>
+    <%= text_field_tag :entrytags %>
+    <br/><br/>
+    <%= label_tag t('.poster') %>
+    <%= text_field_tag :entryposter %>
+    <br/><br/>
+    <%= submit_tag t('.add') %>
+  <% end %>
+</div>
